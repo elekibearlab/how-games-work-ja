@@ -1,0 +1,9 @@
+{
+  "name": "how-games-work-ja",
+  "private": true,
+  "description": "ゲームのしくみ 基礎編のサンプル（JavaScript 版を ES モジュールとして動かす設定と、3D 版の起動コマンド）",
+  "type": "module",
+  "scripts": {
+    "play-3d": "npx --yes serve@14.2.4 07_ai_3d_games"
+  }
+}

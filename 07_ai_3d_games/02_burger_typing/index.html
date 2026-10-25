@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BURGER TYPING 3D</title>
+    <style>
+      #back {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 10;
+        padding: 8px 16px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #ffffff;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+      }
+      #back:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #ffe9c7;
+        color: #3a2412;
+        font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+      }
+      canvas {
+        display: block;
+      }
+      #hud {
+        position: fixed;
+        top: 64px;
+        left: 16px;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.6;
+      }
+      #word {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 48px;
+        text-align: center;
+        font-family: "Consolas", "Menlo", monospace;
+        font-size: 56px;
+        font-weight: bold;
+        letter-spacing: 4px;
+      }
+      /* スマホでは画面の下にボタンが並ぶので、その上に出す */
+      @media (pointer: coarse) {
+        #word {
+          bottom: 72px;
+        }
+      }
+      #word .typed {
+        color: #e2541b;
+      }
+      #word .rest {
+        color: #b8a48c;
+      }
+      #panel {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+      #panel > div {
+        background: rgba(255, 250, 240, 0.9);
+        border: 3px solid #e2541b;
+        border-radius: 14px;
+        padding: 24px 36px;
+        text-align: center;
+        line-height: 1.8;
+        font-size: 18px;
+        white-space: pre-line;
+      }
+      #panel h1 {
+        margin: 0 0 12px;
+        color: #e2541b;
+        font-size: 32px;
+      }
+    </style>
+    <link rel="stylesheet" href="../touch_controls.css" />
+    <script type="importmap">
+      { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+    </script>
+  </head>
+  <body>
+    <a id="back" href="../" tabindex="-1">&larr; Back</a>
+    <div id="hud"></div>
+    <div id="word"></div>
+    <div id="panel"></div>
+    <script type="module" src="./main.js"></script>
+    <!-- スマホで遊ぶためのボタン（PC では出ない） -->
+    <script type="module">
+      import { setupTouchControls } from "../touch_controls.js";
+      setupTouchControls(
+        [
+          { label: "Enter", key: "Enter" },
+          { label: "r", key: "r" },
+          { label: "q", key: "q" },
+        ],
+        true,
+      );
+    </script>
+  </body>
+</html>
